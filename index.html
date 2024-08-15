@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo Jokenpo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Vídeo de fundo -->
+    <video autoplay muted loop id="background-video">
+        <source src="img/video des.mp4" type="video/mp4">
+        Seu navegador não suporta a tag de vídeo.
+    </video>
+
+    <div class="overlay"></div>
+
+    <div class="player-input">
+        <input type="text" id="player1-name" placeholder="Nome do Jogador 1" required>
+        <input type="text" id="player2-name" placeholder="Nome do Jogador 2" required>
+        <label for="auto-player">Modo Automático:</label>
+        <select id="auto-player">
+            <option value="">Nenhum</option>
+            <option value="player1">Jogador 1</option>
+            <option value="player2">Jogador 2</option>
+        </select>
+        <button onclick="startGame()">Iniciar Jogo</button>
+    </div>
+
+    <div class="container" style="display: none;">
+        <div class="player" id="player1">
+            <h2 id="player1-display">Jogador 1</h2>
+            <p>Placar: <span id="score1">0</span></p>
+            <div class="choices">
+                <button onclick="makeChoice('player1', 'pedra')">
+                    <img src="img/pedra.png" alt="Pedra">
+                </button>
+                <button onclick="makeChoice('player1', 'papel')">
+                    <img src="img/papel.jpeg" alt="Papel">
+                </button>
+                <button onclick="makeChoice('player1', 'tesoura')">
+                    <img src="img/tesoura.jpeg" alt="Tesoura">
+                </button>
+            </div>
+            <p>Escolha: <span id="choice1">Nenhuma</span></p>
+        </div>
+
+        <div class="player" id="player2">
+            <h2 id="player2-display">Jogador 2</h2>
+            <p>Placar: <span id="score2">0</span></p>
+            <div class="choices">
+                <button onclick="makeChoice('player2', 'pedra')">
+                    <img src="img/pedra.png" alt="Pedra">
+                </button>
+                <button onclick="makeChoice('player2', 'papel')">
+                    <img src="img/papel.jpeg" alt="Papel">
+                </button>
+                <button onclick="makeChoice('player2', 'tesoura')">
+                    <img src="img/tesoura.jpeg" alt="Tesoura">
+                </button>
+            </div>
+            <p>Escolha: <span id="choice2">Nenhuma</span></p>
+        </div>
+    </div>
+
+    <div class="result" style="display: none;">
+        <h2>Resultado: <span id="result">Aguardando...</span></h2>
+        <img id="trophy" src="img/troféu.jpg" alt="Troféu" style="display: none; width: 100px;">
+        <button onclick="resetGame()">Reiniciar Jogo</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
